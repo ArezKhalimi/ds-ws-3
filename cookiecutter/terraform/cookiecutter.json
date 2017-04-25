@@ -1,0 +1,26 @@
+{
+    "terraform_dir": "terraform",
+    "mailgun_api_key": null,
+    "mailgn_smtp_password": null,
+    "digitalocean_token": null,
+    "digitalocean_region": "fra1",
+    "digitalocean_image": "ubuntu-14-04-x64",
+    "base_domain": "example.com",
+
+    "production_domain": "{{ cookiecutter.base_domain.lower() }}",
+    "production_api_domain": "api.{{ cookiecutter.production_domain.lower() }}",
+
+    "staging_domain": "staging.{{ cookiecutter.base_domain.lower() }}",
+    "staging_api_domain": "api.{{ cookiecutter.staging_domain.lower() }}",
+
+    "development_domain": "dev.{{ cookiecutter.base_domain.lower() }}",
+    "development_api_domain": "api.{{ cookiecutter.development_domain.lower() }}",
+
+    "jenkins_domain": "jenkins.{{ cookiecutter.base_domain.lower() }}",
+
+    "elasticsearch_domain": "elasticsearch.{{ cookiecutter.base_domain.lower() }}",
+    "kibana_domain": "kibana.{{ cookiecutter.base_domain.lower() }}",
+    "logstash_domain": "logstash.{{ cookiecutter.base_domain.lower() }}",
+
+    "nagios_domain": "nagios.{{ cookiecutter.base_domain.lower() }}"
+}
