@@ -15,3 +15,13 @@ $ cookiecutter cookiecutter/terraform/
 ```bash
 $ terraform plan -var-file="secret.tfvars"
 ```
+
+## 4. Apply Terraform plan
+```bash
+$ terraform apply -var-file="secret.tfvars"
+```
+
+## 5. Destroy Terraform plan
+```bash
+$ terraform destroy -var-file="secret.tfvars"
+```
