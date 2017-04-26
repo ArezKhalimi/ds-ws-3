@@ -3,56 +3,56 @@ resource "digitalocean_ssh_key" "terraform" {
   public_key = "${file("~/.ssh/id_rsa.pub")}"
 }
 
-# Create a new production droplet in the {{ cookiecutter.digitalocean_region }} region
+# Create a new production droplet
 resource "digitalocean_droplet" "production" {
-  image  = "{{ cookiecutter.digitalocean_image }}"
-  name   = "{{ cookiecutter.production_domain }}"
-  region = "{{ cookiecutter.digitalocean_region }}"
+  image  = "${var.digitalocean_image}"
+  name   = "${var.production_domain}"
+  region = "${var.digitalocean_region}"
   size   = "512mb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
 
-# Create a new staging droplet in the {{ cookiecutter.digitalocean_region }} region
+# Create a new staging droplet
 resource "digitalocean_droplet" "staging" {
-  image  = "{{ cookiecutter.digitalocean_image }}"
-  name   = "{{ cookiecutter.staging_domain }}"
-  region = "{{ cookiecutter.digitalocean_region }}"
+  image  = "${var.digitalocean_image}"
+  name   = "${var.staging_domain}"
+  region = "${var.digitalocean_region}"
   size   = "512mb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
 
-# Create a new development droplet in the {{ cookiecutter.digitalocean_region }} region
+# Create a new development droplet
 resource "digitalocean_droplet" "dev" {
-  image  = "{{ cookiecutter.digitalocean_image }}"
-  name   = "{{ cookiecutter.development_domain }}"
-  region = "{{ cookiecutter.digitalocean_region }}"
+  image  = "${var.digitalocean_image}"
+    name   = "${var.development_domain}"
+  region = "${var.digitalocean_region}"
   size   = "512mb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
 
-# Create a new jenkins droplet in the {{ cookiecutter.digitalocean_region }} region
+# Create a new jenkins droplet
 resource "digitalocean_droplet" "jenkins" {
-  image  = "{{ cookiecutter.digitalocean_image }}"
-  name   = "{{ cookiecutter.jenkins_domain }}"
-  region = "{{ cookiecutter.digitalocean_region }}"
+  image  = "${var.digitalocean_image}"
+  name   = "${var.jenkins_domain}"
+  region = "${var.digitalocean_region}"
   size   = "2gb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
 
-# Create a new elk droplet in the {{ cookiecutter.digitalocean_region }} region
+# Create a new elk droplet
 resource "digitalocean_droplet" "elk" {
-  image  = "{{ cookiecutter.digitalocean_image }}"
-  name   = "{{ cookiecutter.kibana_domain }}"
-  region = "{{ cookiecutter.digitalocean_region }}"
+  image  = "${var.digitalocean_image}"
+  name   = "${var.kibana_domain}"
+  region = "${var.digitalocean_region}"
   size   = "2gb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
 
-# Create a new nagios droplet in the {{ cookiecutter.digitalocean_region }} region
+# Create a new nagios droplet
 resource "digitalocean_droplet" "nagios" {
-  image  = "{{ cookiecutter.digitalocean_image }}"
-  name   = "{{ cookiecutter.nagios_domain }}"
-  region = "{{ cookiecutter.digitalocean_region }}"
+  image  = "${var.digitalocean_image}"
+  name   = "${var.nagios_domain}"
+  region = "${var.digitalocean_region}"
   size   = "512mb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
