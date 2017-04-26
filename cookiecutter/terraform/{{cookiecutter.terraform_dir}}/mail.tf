@@ -8,7 +8,7 @@ provider "mailgun" {
 
 # Create a new Mailgun domain
 resource "mailgun_domain" "default" {
-  name          = "{{ cookiecutter.base_domain }}"
+  name          = "${var.base_domain}"
   spam_action   = "disabled"
   smtp_password = "${var.mailgun_api_key}"
 }
