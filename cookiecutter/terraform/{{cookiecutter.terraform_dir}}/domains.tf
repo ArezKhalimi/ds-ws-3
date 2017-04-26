@@ -1,6 +1,6 @@
-# Create {{ cookiecutter.base_domain }} domain
+# Create base domain
 resource "digitalocean_domain" "default" {
-  name       = "{{ cookiecutter.base_domain }}"
+  name       = "${var.base_domain}"
   ip_address = "${digitalocean_droplet.production.ipv4_address}"
 }
 
@@ -20,58 +20,82 @@ resource "digitalocean_record" "mailgun_sending_record_rsa" {
   value  = "${mailgun_domain.default.sending_records.1.value}"
 }
 
-# Add a record to {{ cookiecutter.staging_domain }} domain
+# Add a record to production api domain
+resource "digitalocean_record" "production_api" {
+  domain = "${digitalocean_domain.default.name}"
+  type   = "A"
+  name   = "${replace(var.production_api_domain, "/.${digitalocean_domain.default.name}$/", "")}"
+  value  = "${digitalocean_droplet.production.ipv4_address}"
+}
+
+# Add a record to staging domain
 resource "digitalocean_record" "staging" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "staging"
+  name   = "${replace(var.staging_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.staging.ipv4_address}"
 }
 
-# Add a record to {{ cookiecutter.development_domain }} domain
+# Add a record to staging api domain
+resource "digitalocean_record" "staging" {
+  domain = "${digitalocean_domain.default.name}"
+  type   = "A"
+  name   = "${replace(var.staging_api_domain, "/.${digitalocean_domain.default.name}$/", "")}"
+  value  = "${digitalocean_droplet.staging.ipv4_address}"
+}
+
+# Add a record to development domain
 resource "digitalocean_record" "dev" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "dev"
+  name   = "${replace(var.development_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.dev.ipv4_address}"
 }
 
-# Add a record to {{ cookiecutter.jenkins_domain }} domain
+# Add a record to development api domain
+resource "digitalocean_record" "dev" {
+  domain = "${digitalocean_domain.default.name}"
+  type   = "A"
+  name   = "${replace(var.development_api_domain, "/.${digitalocean_domain.default.name}$/", "")}"
+  value  = "${digitalocean_droplet.dev.ipv4_address}"
+}
+
+# Add a record to jenkins domain
 resource "digitalocean_record" "jenkins" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "jenkins"
+  name   = "${replace(var.jenkins_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.jenkins.ipv4_address}"
 }
 
-# Add a record to {{ cookiecutter.kibana_domain }} domain
+# Add a record to kibana domain
 resource "digitalocean_record" "kibana" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "kibana"
+  name   = "${replace(var.kibana_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.elk.ipv4_address}"
 }
 
-# Add a record to {{ cookiecutter.elasticsearch_domain }} domain
+# Add a record to elasticsearch domain
 resource "digitalocean_record" "elasticsearch" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "elasticsearch"
+  name   = "${replace(var.elasticsearch_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.elk.ipv4_address}"
 }
 
-# Add a record to {{ cookiecutter.logstash_domain }} domain
+# Add a record to logstash domain
 resource "digitalocean_record" "logstash" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "logstash"
+  name   = "${replace(var.logstash_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.elk.ipv4_address}"
 }
 
-# Add a record to {{ cookiecutter.nagios_domain }} domain
+# Add a record to nagios domain
 resource "digitalocean_record" "nagios" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
-  name   = "nagios"
+  name   = "${replace(var.nagios_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.nagios.ipv4_address}"
 }
