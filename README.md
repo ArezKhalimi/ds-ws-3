@@ -6,7 +6,7 @@ Production with Docker (lite)
 $ git clone git@github.com:haos616/docker-workshop-3.git
 ```
 
-## 2. Create terraform dir
+## 2. Create terraform configs
 ```bash
 $ cookiecutter cookiecutter/terraform/
 ```
