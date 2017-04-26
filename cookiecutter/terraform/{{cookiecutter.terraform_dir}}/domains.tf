@@ -37,7 +37,7 @@ resource "digitalocean_record" "staging" {
 }
 
 # Add a record to staging api domain
-resource "digitalocean_record" "staging" {
+resource "digitalocean_record" "staging_api" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
   name   = "${replace(var.staging_api_domain, "/.${digitalocean_domain.default.name}$/", "")}"
@@ -53,7 +53,7 @@ resource "digitalocean_record" "dev" {
 }
 
 # Add a record to development api domain
-resource "digitalocean_record" "dev" {
+resource "digitalocean_record" "dev_api" {
   domain = "${digitalocean_domain.default.name}"
   type   = "A"
   name   = "${replace(var.development_api_domain, "/.${digitalocean_domain.default.name}$/", "")}"
