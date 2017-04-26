@@ -16,7 +16,7 @@ resource "digitalocean_record" "mailgun_sending_record_spf1" {
 resource "digitalocean_record" "mailgun_sending_record_rsa" {
   domain = "${digitalocean_domain.default.name}"
   type   = "${mailgun_domain.default.sending_records.1.record_type}"
-  name   = "${substr(mailgun_domain.default.sending_records.1.name, 0, length(mailgun_domain.default.sending_records.1.name) - length(digitalocean_domain.default.name) - 1)}"
+  name   = "${replace(mailgun_domain.default.sending_records.1.name, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${mailgun_domain.default.sending_records.1.value}"
 }
 
