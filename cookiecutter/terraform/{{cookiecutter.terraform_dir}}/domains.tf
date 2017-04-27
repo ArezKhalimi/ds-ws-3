@@ -107,3 +107,11 @@ resource "digitalocean_record" "registry" {
   name   = "${replace(var.registry_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.registry.ipv4_address}"
 }
+
+# Add a record to local domain
+resource "digitalocean_record" "local" {
+  domain = "${digitalocean_domain.default.name}"
+  type   = "A"
+  name   = "${replace(var.local_domain, "/.${digitalocean_domain.default.name}$/", "")}"
+  value  = "${digitalocean_droplet.registry.ipv4_address}"
+}

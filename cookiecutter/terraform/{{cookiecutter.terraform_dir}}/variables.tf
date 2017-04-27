@@ -19,5 +19,7 @@ variable "nagios_domain" { default = "{{ cookiecutter.nagios_domain }}" }
 
 variable "registry_domain" { default = "{{ cookiecutter.registry_domain }}" }
 
+variable "local_domain" { default = "{{ cookiecutter.local_domain }}" }
+
 variable "digitalocean_region" { default = "{{ cookiecutter.digitalocean_region }}" }
 variable "digitalocean_image" { default = "{{ cookiecutter.digitalocean_image }}" }

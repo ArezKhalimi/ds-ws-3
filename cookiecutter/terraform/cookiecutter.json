@@ -24,5 +24,7 @@
 
     "nagios_domain": "nagios.{{ cookiecutter.base_domain.lower() }}",
 
+    "local_domain": "nagios.{{ cookiecutter.base_domain.lower() }}",
+
     "registry_domain": "hub.{{ cookiecutter.base_domain.lower() }}"
 }
