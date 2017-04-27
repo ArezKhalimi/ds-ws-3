@@ -47,21 +47,3 @@ resource "digitalocean_droplet" "jenkins" {
   size   = "2gb"
   ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
 }
-
-# Create a new elk droplet
-resource "digitalocean_droplet" "elk" {
-  image  = "${var.digitalocean_image}"
-  name   = "${var.kibana_domain}"
-  region = "${var.digitalocean_region}"
-  size   = "2gb"
-  ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
-}
-
-# Create a new nagios droplet
-resource "digitalocean_droplet" "nagios" {
-  image  = "${var.digitalocean_image}"
-  name   = "${var.nagios_domain}"
-  region = "${var.digitalocean_region}"
-  size   = "512mb"
-  ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
-}
