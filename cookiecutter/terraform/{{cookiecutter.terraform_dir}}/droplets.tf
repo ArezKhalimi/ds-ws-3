@@ -3,6 +3,15 @@ resource "digitalocean_ssh_key" "terraform" {
   public_key = "${file("~/.ssh/id_rsa.pub")}"
 }
 
+# Create a new registry droplet
+resource "digitalocean_droplet" "registry" {
+  image  = "${var.digitalocean_image}"
+  name   = "${var.registry_domain}"
+  region = "${var.digitalocean_region}"
+  size   = "512mb"
+  ssh_keys = ["${digitalocean_ssh_key.terraform.id}"]
+}
+
 # Create a new production droplet
 resource "digitalocean_droplet" "production" {
   image  = "${var.digitalocean_image}"

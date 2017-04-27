@@ -22,5 +22,7 @@
     "kibana_domain": "kibana.{{ cookiecutter.base_domain.lower() }}",
     "logstash_domain": "logstash.{{ cookiecutter.base_domain.lower() }}",
 
-    "nagios_domain": "nagios.{{ cookiecutter.base_domain.lower() }}"
+    "nagios_domain": "nagios.{{ cookiecutter.base_domain.lower() }}",
+
+    "registry_domain": "hub.{{ cookiecutter.base_domain.lower() }}"
 }

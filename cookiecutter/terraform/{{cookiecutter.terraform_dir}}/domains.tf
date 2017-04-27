@@ -99,3 +99,11 @@ resource "digitalocean_record" "nagios" {
   name   = "${replace(var.nagios_domain, "/.${digitalocean_domain.default.name}$/", "")}"
   value  = "${digitalocean_droplet.nagios.ipv4_address}"
 }
+
+# Add a record to registry domain
+resource "digitalocean_record" "registry" {
+  domain = "${digitalocean_domain.default.name}"
+  type   = "A"
+  name   = "${replace(var.registry_domain, "/.${digitalocean_domain.default.name}$/", "")}"
+  value  = "${digitalocean_droplet.registry.ipv4_address}"
+}

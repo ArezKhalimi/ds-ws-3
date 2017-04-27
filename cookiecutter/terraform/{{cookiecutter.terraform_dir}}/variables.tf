@@ -17,6 +17,7 @@ variable "logstash_domain" { default = "{{ cookiecutter.logstash_domain }}" }
 
 variable "nagios_domain" { default = "{{ cookiecutter.nagios_domain }}" }
 
+variable "registry_domain" { default = "{{ cookiecutter.registry_domain }}" }
+
 variable "digitalocean_region" { default = "{{ cookiecutter.digitalocean_region }}" }
 variable "digitalocean_image" { default = "{{ cookiecutter.digitalocean_image }}" }
-

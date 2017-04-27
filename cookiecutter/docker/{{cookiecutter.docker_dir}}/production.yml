@@ -1,0 +1,12 @@
+version: '2'
+volumes:
+  api_django_media: {}
+services:
+  api_django:
+    image: ${HUB_HOST}/${PROJECT_NAME}/api-django:${PROJECT_VERSION}
+    volumes:
+      - api_django_media:/code/public/media
+  api_celery_worker:
+    image: ${HUB_HOST}/${PROJECT_NAME}/api-django:${PROJECT_VERSION}
+    volumes:
+      - api_django_media:/code/public/media

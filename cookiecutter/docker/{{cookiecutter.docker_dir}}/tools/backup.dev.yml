@@ -1,0 +1,5 @@
+version: '2'
+services:
+  api_postgres_backup:
+    volumes:
+      - './backups/api_postgres:/backups'
