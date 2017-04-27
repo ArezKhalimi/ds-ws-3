@@ -28,14 +28,6 @@ resource "digitalocean_record" "staging" {
   value  = "${digitalocean_droplet.staging.ipv4_address}"
 }
 
-# Add a record to staging api domain
-resource "digitalocean_record" "staging_api" {
-  domain = "${digitalocean_domain.default.name}"
-  type   = "A"
-  name   = "${replace(var.staging_api_domain, "/.${digitalocean_domain.default.name}$/", "")}"
-  value  = "${digitalocean_droplet.staging.ipv4_address}"
-}
-
 # Add a record to development domain
 resource "digitalocean_record" "dev" {
   domain = "${digitalocean_domain.default.name}"

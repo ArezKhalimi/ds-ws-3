@@ -8,20 +8,28 @@ $ git clone git@github.com:haos616/docker-workshop-3.git
 
 ## 2. Create terraform configs
 ```bash
-$ cookiecutter cookiecutter/terraform/
+$ cd cookiecutter
+$ docker-compose run --rm cookiecutter cookiecutter/terraform
+$ cd ..
+```
+
+## 2.1 Change permission
+```bash
+$ chown user:user terraform/ -R
 ```
 
 ## 3. Show Terraform plan
 ```bash
-$ terraform plan -var-file="secret.tfvars"
+
+$ docker-compose run --rm terraform plan -var-file="secret.tfvars"
 ```
 
 ## 4. Apply Terraform plan
 ```bash
-$ terraform apply -var-file="secret.tfvars"
+$ docker-compose run --rm terraform apply -var-file="secret.tfvars"
 ```
 
 ## 5. Destroy Terraform plan
 ```bash
-$ terraform destroy -var-file="secret.tfvars"
+$ docker-compose run --rm terraform destroy -var-file="secret.tfvars"
 ```

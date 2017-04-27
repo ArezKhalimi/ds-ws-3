@@ -1,8 +1,5 @@
 {
     "terraform_dir": "terraform",
-    "mailgun_api_key": null,
-    "mailgn_smtp_password": null,
-    "digitalocean_token": null,
     "digitalocean_region": "fra1",
     "digitalocean_image": "ubuntu-14-04-x64",
     "base_domain": "example.com",

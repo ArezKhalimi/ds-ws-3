@@ -1,0 +1,8 @@
+version: '2'
+services:
+  terraform:
+    image: hashicorp/terraform:latest
+    working_dir: /configs
+    volumes:
+      - .:/configs
+      - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
