@@ -62,7 +62,7 @@ data "template_file" "jenkins" {
     domain = "${var.jenkins_domain}"
   }
 }
-resource "local_file" "development" {
+resource "local_file" "jenkins" {
     content     = "${data.template_file.jenkins.rendered}"
     filename = "${path.module}/../ansible/host_vars/jenkins"
 }
