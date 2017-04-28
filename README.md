@@ -5,6 +5,7 @@ Production with Docker (lite)
 ```bash
 $ git clone git@github.com:haos616/docker-workshop-3.git
 ```
+# Terraform
 
 ## 2. Create terraform structure
 ```bash
@@ -38,6 +39,8 @@ $ docker-compose run --rm terraform plan -var-file="secret.tfvars"
 $ docker-compose run --rm terraform apply -var-file="secret.tfvars"
 ```
 
+# Ansible
+
 ## 5. Install Ansible roles
 
 ```bash
@@ -58,6 +61,10 @@ letsencrypt_admin_email
 $ docker-compose run --rm ansible ansible-playbook all.yml -i inventory
 ```
 
+# Django channels
+
+
+# Jenkins
 
 ## 500. Destroy Terraform plan
 ```bash

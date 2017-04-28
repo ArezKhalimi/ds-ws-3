@@ -66,3 +66,15 @@ resource "local_file" "jenkins" {
     content     = "${data.template_file.jenkins.rendered}"
     filename = "${path.module}/../ansible/host_vars/jenkins"
 }
+
+data "template_file" "registry" {
+  template = "${file("${path.module}/host_vars.tpl")}"
+
+  vars {
+    domain = "${var.registry_domain}"
+  }
+}
+resource "local_file" "registry" {
+    content     = "${data.template_file.registry.rendered}"
+    filename = "${path.module}/../ansible/host_vars/registry"
+}
