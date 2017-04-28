@@ -33,3 +33,9 @@ $ docker-compose run --rm terraform apply -var-file="secret.tfvars"
 ```bash
 $ docker-compose run --rm terraform destroy -var-file="secret.tfvars"
 ```
+
+## 6. Install Ansible roles
+
+```bash
+$ docker-compose run --rm ansible ansible-galaxy install -p roles -r requirements.yml
+```
