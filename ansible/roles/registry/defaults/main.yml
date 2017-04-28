@@ -16,6 +16,7 @@ registry_dirs:
   - "{{ registry_configs_dir }}"
   - "{{ registry_docker_compose_dir }}"
 
+
 registry_docker:
   project_name: "{{ registry_project_name }}"
   definition:
