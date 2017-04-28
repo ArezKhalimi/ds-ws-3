@@ -4,3 +4,9 @@
 - name: Creates directories
   file: path="{{ item }}" owner="{{ jenkins_user }}" group="{{ jenkins_user }}" state=directory
   with_items: "{{ jenkins_dirs }}"
+
+- name: Install Java
+  apt: name=openjdk-8-jre
+
+- name: Install Java
+  apt: name=openjdk-8-jdk
