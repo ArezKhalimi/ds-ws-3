@@ -8,6 +8,9 @@ $ git clone git@github.com:haos616/docker-workshop-3.git
 # Terraform
 
 ## 2. Create terraform structure
+
+**Video:**  `cookiecutter-terraform.mp4`
+
 ```bash
 $ cd cookiecutter
 $ docker-compose run --rm cookiecutter cookiecutter/terraform
@@ -16,7 +19,7 @@ $ docker-compose run --rm cookiecutter cookiecutter/terraform
 ## 2.1 Change permission
 ```bash
 # cd ..
-# chown user:user terraform/ -R
+# chown `whoami`:`whoami` terraform/ -R
 ```
 
 ## 3. Update file secret.tfvars
@@ -35,6 +38,9 @@ $ docker-compose run --rm terraform plan -var-file="secret.tfvars"
 ```
 
 ## 4. Apply Terraform plan
+
+**Video:**  `apply-terraform.mp4`
+
 ```bash
 $ docker-compose run --rm terraform apply -var-file="secret.tfvars"
 ```
@@ -45,6 +51,8 @@ $ docker-compose run --rm terraform apply -var-file="secret.tfvars"
 # Ansible
 
 ## 5. Install Ansible roles
+
+**Video:**  `install-roles-ansible.mp4`
 
 ```bash
 $ cd ansible
@@ -59,6 +67,8 @@ letsencrypt_admin_email
 ```
 
 ## 6. Run Ansible playbooks
+
+**Video:**  `run-ansible.mp4`
 
 ```bash
 $ docker-compose run --rm ansible ansible-playbook all.yml -i inventory
