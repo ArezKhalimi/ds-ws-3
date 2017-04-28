@@ -1,7 +1,0 @@
-version: '2'
-services:
-  api_django:
-    image: ${HUB_HOST}/${PROJECT_NAME}/api-django:${PROJECT_VERSION}
-    command: python manage.py test --parallel
-    env_file:
-      - ./envs/test/api/django.env

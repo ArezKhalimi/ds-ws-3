@@ -1,7 +1,0 @@
-version: '2'
-volumes:
-  api_postgres_backups: {}
-services:
-  api_postgres_backup:
-    volumes:
-      - api_postgres_backups:/backups

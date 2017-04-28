@@ -2,7 +2,7 @@
     "terraform_dir": "terraform",
     "terraform_version": "0.9.4",
     "digitalocean_region": "fra1",
-    "digitalocean_image": "ubuntu-14-04-x64",
+    "digitalocean_image": "debian-8-x64",
     "base_domain": "example.com",
 
     "production_domain": "{{ cookiecutter.base_domain.lower() }}",
