@@ -14,3 +14,55 @@ resource "local_file" "ansible" {
     content     = "${data.template_file.inventory.rendered}"
     filename = "${path.module}/../ansible/inventory"
 }
+
+data "template_file" "production" {
+  template = "${file("${path.module}/host_vars.tpl")}"
+
+  vars {
+    domain = "${var.production_domain}"
+  }
+}
+resource "local_file" "production" {
+    content     = "${data.template_file.production.rendered}"
+    filename = "${path.module}/../ansible/host_vars/production"
+}
+
+
+
+data "template_file" "staging" {
+  template = "${file("${path.module}/host_vars.tpl")}"
+
+  vars {
+    domain = "${var.staging_domain}"
+  }
+}
+resource "local_file" "staging" {
+    content     = "${data.template_file.staging.rendered}"
+    filename = "${path.module}/../ansible/host_vars/staging"
+}
+
+
+data "template_file" "development" {
+  template = "${file("${path.module}/host_vars.tpl")}"
+
+  vars {
+    domain = "${var.development_domain}"
+  }
+}
+resource "local_file" "development" {
+    content     = "${data.template_file.development.rendered}"
+    filename = "${path.module}/../ansible/host_vars/development"
+}
+
+
+data "template_file" "jenkins" {
+  template = "${file("${path.module}/host_vars.tpl")}"
+
+  vars {
+    domain = "${var.jenkins_domain}"
+  }
+}
+resource "local_file" "development" {
+    content     = "${data.template_file.jenkins.rendered}"
+    filename = "${path.module}/../ansible/host_vars/jenkins"
+}

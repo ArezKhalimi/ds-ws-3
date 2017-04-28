@@ -5,4 +5,5 @@ services:
     working_dir: /ansible
     volumes:
       - .:/ansible
-      - ~/.ssh:/root/.ssh
+      - ~/.ssh/id_rsa.pub:/root/.ssh/id_rsa.pub
+      - ~/.ssh/id_rsa:/root/.ssh/id_rsa
