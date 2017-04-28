@@ -21,7 +21,7 @@ $ docker-compose run --rm cookiecutter cookiecutter/terraform
 
 ## 3. Update file secret.tfvars
 
-**terraform/secret.tfvars**
+`terraform/secret.tfvars`
 ```
 digitalocean_token = "you digitalocean token"
 mailgun_api_key = "you mailgun api key"
@@ -39,6 +39,9 @@ $ docker-compose run --rm terraform plan -var-file="secret.tfvars"
 $ docker-compose run --rm terraform apply -var-file="secret.tfvars"
 ```
 
+# Check Mailgun
+
+
 # Ansible
 
 ## 5. Install Ansible roles
@@ -50,7 +53,7 @@ $ docker-compose run --rm ansible ansible-galaxy install -p roles -r requirement
 
 ## 6. Add email for letsencrypt
 
-**ansible/group_vars/all.yml**
+`ansible/group_vars/all.yml`
 ```
 letsencrypt_admin_email
 ```
@@ -63,8 +66,28 @@ $ docker-compose run --rm ansible ansible-playbook all.yml -i inventory
 
 # Django channels
 
+# 7. Run chat
+```bash
+$ cd docker
+$ docker-compose up
+```
+
+# 8. Go to chat
+[chat](http://127.0.0.1/)
 
 # Jenkins
+
+## 9. Start Jenkins
+
+**Video:**  `start-jenkins.mp4`
+
+## 10. Configure Jenkins (with username and root)
+
+**Video:**  `configure-jenkins.mp4`
+
+## 11. Create job
+
+
 
 ## 500. Destroy Terraform plan
 ```bash

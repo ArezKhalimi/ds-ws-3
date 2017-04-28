@@ -16,7 +16,7 @@ push:
 	docker-compose push chat_nginx
 
 test:
-	export COMPOSE_FILE=common.yml:depends.yml:test.yml
+	export COMPOSE_FILE=common.yml:dev.yml:depends.yml:test.yml
 	docker-compose run --rm chat_django
 	docker-compose down -v
 
