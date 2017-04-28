@@ -5,6 +5,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* \
     && pip install Jinja2
 
+ADD ./chat/public/static/ /public/static/
 ADD ./docker/images/chat-nginx /scripts
 
 RUN chmod +x /scripts/docker-entrypoint.sh
