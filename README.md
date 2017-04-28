@@ -1,9 +1,9 @@
 Production with Docker (lite)
 -----------------------------
 
-## 1. Clone project https://github.com/haos616/docker-workshop-3
+## 1. Clone project https://github.com/haos616/ds-ws-3
 ```bash
-$ git clone git@github.com:haos616/docker-workshop-3.git
+$ git clone git@github.com:haos616/ds-ws-3.git
 ```
 # Terraform
 
